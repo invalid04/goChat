@@ -106,10 +106,8 @@ body {
   height: 2px;
   background-color: #ffffff;
   border-radius: 50%;
-  animation: twinkling 3s infinite;
+  animation: twinkling 6s infinite;
 }
-
-
 
 
 

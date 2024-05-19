@@ -40,7 +40,8 @@ function App() {
 
   const createStars = () => {
     const stars = [];
-    for (let i = 0; i < 1000; i++) {
+    for (let i = 0; i < 400; i++) {
+      const delay = Math.random() * 10; // Adjust the delay range as needed
       stars.push(
         <div
           key={i}
@@ -48,12 +49,14 @@ function App() {
           style={{
             top: `${Math.random() * 100}%`,
             left: `${Math.random() * 100}%`,
+            animationDelay: `${delay}s`, // Apply the delay
           }}
         ></div>
       );
     }
     return stars;
   };
+  
 
   return (
     <div>
@@ -81,4 +84,3 @@ function App() {
 }
 
 export default App;
-
