@@ -9,7 +9,7 @@ function App() {
   const [stars, setStars] = useState([]);
 
   useEffect(() => {
-    const socket = new WebSocket('https://gochat-1.onrender.com/ws');
+    const socket = new WebSocket('wss://gochat-1.onrender.com/ws');
 
     socket.onopen = () => {
       console.log('Connected to the WebSocket server');
