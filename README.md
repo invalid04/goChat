@@ -1,6 +1,6 @@
-# Go-Vite-Chat
+# Go-Chat
 
-Welcome to Go-Vite-Chat! This project is a simple web chat application built using Go for the backend and React with Vite for the frontend.
+Welcome to Go-Chat! This project is a simple web chat application built using Go for the backend and React with Vite for the frontend.
 
 ## Getting Started
 
