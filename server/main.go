@@ -4,24 +4,27 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"math/rand"
+	"time"
 
 	"golang.org/x/net/websocket"
 )
 
 type Server struct {
-	conns map[*websocket.Conn]bool
+	conns map[*websocket.Conn]string
 }
 
 func NewServer() *Server {
 	return &Server{
-		conns: make(map[*websocket.Conn]bool),
+		conns: make(map[*websocket.Conn]string),
 	}
 }
 
 func (s *Server) handleWS(ws *websocket.Conn) {
 	fmt.Println("new incoming connection from client:", ws.RemoteAddr())
 
-	s.conns[ws] = true
+	user := string('A' + rand.Intn(26))
+	s.conns[ws] = user 
 
 	s.readLoop(ws)
 }
@@ -37,16 +40,16 @@ func (s *Server) readLoop(ws *websocket.Conn) {
 			fmt.Println("read error:", err)
 			continue 
 		}
-		msg := buf[:n]
+		msg := fmt.Sprintf("[%s]: %s", s.conns[ws], string(buf[:n]))
 
-		s.broadcast(msg)
+		s.broadcast([]byte(msg))
 	}
 }
 
-func (s *Server) broadcast(b []byte) {
+func (s *Server) broadcast(msg []byte) {
 	for ws := range s.conns {
 		go func(ws *websocket.Conn) {
-			if _, err := ws.Write(b); err != nil {
+			if _, err := ws.Write(msg); err != nil {
 				fmt.Println("write error:", err)
 			}
 		}(ws)
@@ -54,7 +57,10 @@ func (s *Server) broadcast(b []byte) {
 }
 
 func main() {
+	rand.NewSource(time.Now().UnixNano())
+
 	server := NewServer()
 	http.Handle("/ws", websocket.Handler(server.handleWS))
+	
 	http.ListenAndServe(":8080", nil)
 }
