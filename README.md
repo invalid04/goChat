@@ -19,10 +19,6 @@ Welcome to Go-Vite-Chat! This project is a simple web chat application built usi
 
 Once both the backend and frontend servers are running, you can access the web chat application by visiting `http://localhost:5173` in your web browser.
 
-## Important Note
-
-There is a peculiar issue with browser compatibility when hosting the application. Currently, it only works on Microsoft Edge when accessed through the hosted URL: [https://go-vite-chat.vercel.app/](https://go-vite-chat.vercel.app/). However, users can modify the React websocket URL to `localhost` instead of the hosted backend URL to make it work on any browser. We are actively investigating and resolving this issue.
-
 ## Technologies Used
 
 - Go
