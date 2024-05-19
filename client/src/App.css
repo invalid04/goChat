@@ -1,0 +1,115 @@
+/* src/App.css */
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.box {
+  position: relative;
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  width: 600px;
+  max-width: 90%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#chat {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #4f4f4f transparent;
+}
+
+#chat::-webkit-scrollbar {
+  width: 8px;
+}
+
+#chat::-webkit-scrollbar-thumb {
+  background-color: #4f4f4f;
+  border-radius: 4px;
+}
+
+#chat div {
+  background-color: #2a2a2a;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+#chat div:hover {
+  background-color: #383838;
+}
+
+#messageInput {
+  display: flex;
+  border-top: 1px solid #333;
+}
+
+#messageInput input {
+  flex: 1;
+  padding: 15px;
+  border: none;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  font-size: 18px;
+  border-radius: 0 0 0 12px;
+}
+
+#messageInput input:focus {
+  outline: none;
+  background-color: #292929;
+}
+
+#messageInput button {
+  padding: 15px 30px;
+  border: none;
+  background-color: #6200ea;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+  border-radius: 0 0 12px 0;
+}
+
+#messageInput button:hover {
+  background-color: #3700b3;
+}
+
+/* Twinkling stars animation */
+@keyframes twinkling {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  animation: twinkling 3s infinite;
+}
+
+
+
+
+
