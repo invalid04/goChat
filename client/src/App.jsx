@@ -64,11 +64,13 @@ function App() {
         {stars} {/* Render stars here */}
       </div>
       <div className="box">
-        <div id="chat">
+      <div id="chat">
+        <div id="messageList">
           {messages.map((msg, index) => (
             <div key={index}>{msg}</div>
           ))}
         </div>
+      </div>
         <div id="messageInput">
           <input
             type="text"
